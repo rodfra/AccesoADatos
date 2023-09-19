@@ -1,44 +1,42 @@
 package com.franciscoRodriguez.ejerciciosFicheros;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 // Francisco Rodríguez - 2ºDAM Semipresencial
 
 /**
- * Ejercicio 01.04 - Escribir en ficheros de texto + finally
- * Crea un programa que escriba en un fichero ”rectangle.txt” un rectángulo 
- * hueco de asteriscos, del ancho y alto escogido por el usuario.
+ * Ejercicio 01.05 - Log
+ * Crea un programa que añada a un fichero ”log.txt” una nueva línea en cada 
+ * ejecución, que contendrá la fecha (en formato 19-09-2019), la hora (17:02:09) 
+ * y el texto introducción por el usuario.
  */
 
 public class App {
     public static void main( String[] args ) {
+        
         PrintWriter pw = null;
         Scanner sc = new Scanner(System.in);
-        int alto, ancho;
+        LocalDateTime dt = LocalDateTime.now();
         
         try {
-            pw = new PrintWriter("rectangle.txt");
+            pw = new PrintWriter(new BufferedWriter(
+                    new FileWriter("log.txt", true)));
             
-            System.out.print("Introduce el alto: ");
-            alto = sc.nextInt();
+            System.out.print("Introduce una cadena: ");
+            pw.println( "(" + dt.getDayOfMonth() + "/" +
+                    dt.getMonthValue() + "/" +
+                    dt.getYear() + " " +
+                    dt.getHour() + ":" +
+                    dt.getMinute() + ":" +
+                    dt.getSecond() + ") - " + 
+                    sc.nextLine());
             
-            System.out.print("Introduce el ancho: ");
-            ancho = sc.nextInt();
             sc.close();
-            
-            for (int fila = 0; fila < alto; fila++) {
-                for (int columna = 0; columna < ancho; columna++) {
-                    if (fila == 0 || columna == 0 || 
-                            fila == alto - 1 || columna == ancho - 1)
-                        pw.print('*');
-                    else
-                        pw.print(' ');
-                }
-                
-                pw.println();
-            }
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         } finally {
