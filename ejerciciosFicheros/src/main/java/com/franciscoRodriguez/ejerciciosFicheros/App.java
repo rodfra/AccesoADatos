@@ -10,8 +10,6 @@ import java.util.Scanner;
  * Ejercicio 01.04 - Escribir en ficheros de texto + finally
  * Crea un programa que escriba en un fichero ”rectangle.txt” un rectángulo 
  * hueco de asteriscos, del ancho y alto escogido por el usuario.
- * 
- * CORREGIDO ESPACIOS
  */
 
 public class App {
