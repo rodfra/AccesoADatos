@@ -18,12 +18,12 @@ public class App {
     public static void main( String[] args ) {
     	
     	PrintWriter pw = null;
-		Scanner sc = new Scanner(System.in);
-		int alto, ancho;
-
+    	Scanner sc = new Scanner(System.in);
+    	int alto, ancho;
+    	
     	try {
-        	pw = new PrintWriter("rectangle.txt");
-        	
+    		pw = new PrintWriter("rectangle.txt");
+    		
     		System.out.print("Introduce el alto: ");
     		alto = sc.nextInt();
     		
