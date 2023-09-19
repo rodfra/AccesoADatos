@@ -2,31 +2,33 @@ package com.franciscoRodriguez.ejerciciosFicheros;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 // Francisco Rodríguez - 2ºDAM Semipresencial
 
 /**
- * Ejercicio 01.02 - Escribir en ficheros de texto
- * Crea un programa que escriba los números impares del 1 al 10 en un fichero
- *  de texto, cada uno en una línea.
+ * Ejercicio 01.03 - Escribir en ficheros de texto + throws
+ * Crea un programa que escriba en un fichero ”triangle.txt” un triángulo 
+ * creciente de asteriscos, del ancho y alto escogido por el usuario.
  */
 
 public class App {
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws IOException {
     	
-		PrintWriter pw = null;
-
-    	try {
-    		pw = new PrintWriter("ejercicio0102.txt");
-    		
-    		for (int i = 1; i <= 9; i+=2) {
-    			pw.println(i);
-    		}
-    		
-    		pw.close();
-    		
-    	} catch (IOException e) {
-    		System.err.println("Error escribiendo: " + e.getMessage());
-    	}
+		Scanner sc = new Scanner(System.in);
+		PrintWriter pw = new PrintWriter("triangle.txt");
+		int altoYAncho;
+		
+		System.out.print("Introduce el ancho y el alto: ");
+		altoYAncho = sc.nextInt();
+		
+		for (int fila = 0; fila < altoYAncho; fila++) {
+			for (int columna = 0; columna <= fila; columna++) {
+				pw.print('*');
+			}
+			pw.println();
+		}
+		
+		pw.close();
     }
 }
