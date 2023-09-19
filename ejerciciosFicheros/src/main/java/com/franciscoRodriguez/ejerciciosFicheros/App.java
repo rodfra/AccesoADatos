@@ -16,7 +16,6 @@ import java.util.Scanner;
 
 public class App {
     public static void main( String[] args ) {
-        
         PrintWriter pw = null;
         Scanner sc = new Scanner(System.in);
         int alto, ancho;
@@ -49,5 +48,5 @@ public class App {
                 pw.close();
             }
         }
-    	}
+    }
 }
