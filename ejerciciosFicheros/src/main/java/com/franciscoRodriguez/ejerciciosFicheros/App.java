@@ -43,6 +43,8 @@ public class App {
             if (pw != null) {
                 pw.close();
             }
+            
+            System.out.println("FIN");
         }
     }
 }
