@@ -19,6 +19,8 @@ import java.util.Scanner;
 public class App {
     public static void main( String[] args ) {
         
+        System.out.println("INICIO");
+        
         PrintWriter pw = null;
         Scanner sc = new Scanner(System.in);
         LocalDateTime dt = LocalDateTime.now();
